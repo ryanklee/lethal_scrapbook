@@ -20,6 +20,64 @@
 <body>
   <div class="container">
     <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
+    <!-- Form for Games -->
+    <h2>Game Data</h2>
+    <form id="game-form">
+      <div class="form-group">
+        <label for="startDate">Start Date</label>
+        <input type="date" class="form-control" id="startDate" required>
+      </div>
+      <div class="form-group">
+        <label for="finalQuota">Final Quota</label>
+        <input type="number" class="form-control" id="finalQuota" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Game</button>
+    </form>
+
+    <!-- Form for Moons -->
+    <h2>Moon Data</h2>
+    <form id="moon-form">
+      <div class="form-group">
+        <label for="moonName">Moon Name</label>
+        <input type="text" class="form-control" id="moonName" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Moon</button>
+    </form>
+
+    <!-- Form for Facilities -->
+    <h2>Facility Data</h2>
+    <form id="facility-form">
+      <div class="form-group">
+        <label for="facilityMoonId">Moon ID</label>
+        <input type="number" class="form-control" id="facilityMoonId" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Facility</button>
+    </form>
+
+    <!-- Form for Entrances -->
+    <h2>Entrance Data</h2>
+    <form id="entrance-form">
+      <div class="form-group">
+        <label for="entranceFacilityId">Facility ID</label>
+        <input type="number" class="form-control" id="entranceFacilityId" required>
+      </div>
+      <div class="form-group">
+        <label for="entranceType">Entrance Type</label>
+        <input type="text" class="form-control" id="entranceType" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Entrance</button>
+    </form>
+
+    <!-- Form for Strategies -->
+    <h2>Strategy Data</h2>
+    <form id="strategy-form">
+      <div class="form-group">
+        <label for="strategyDescription">Strategy Description</label>
+        <textarea class="form-control" id="strategyDescription" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Strategy</button>
+    </form>
+
 
     <form id="run-form">
       ...

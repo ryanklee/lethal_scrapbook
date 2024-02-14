@@ -16,6 +16,76 @@ const pool = new Pool({
 app.use(express.static('public'));
 app.use(express.json());
 
+// Endpoint to add a new game
+app.post('/games', async (req, res) => {
+  try {
+    const { startDate, finalQuota } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Games (StartDate, FinalQuota) VALUES ($1, $2) RETURNING *',
+      [startDate, finalQuota]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint to add a new moon
+app.post('/moons', async (req, res) => {
+  try {
+    const { name } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Moons (Name) VALUES ($1) RETURNING *',
+      [name]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint to add a new facility
+app.post('/facilities', async (req, res) => {
+  try {
+    const { moonId } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Facilities (MoonID) VALUES ($1) RETURNING *',
+      [moonId]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint to add a new entrance
+app.post('/entrances', async (req, res) => {
+  try {
+    const { facilityId, type } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Entrances (FacilityID, Type) VALUES ($1, $2) RETURNING *',
+      [facilityId, type]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint to add a new strategy
+app.post('/strategies', async (req, res) => {
+  try {
+    const { description } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Strategies (Description) VALUES ($1) RETURNING *',
+      [description]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
