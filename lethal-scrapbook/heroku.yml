@@ -4,5 +4,8 @@ build:
 release:
   command:
     - ./init-db.sh
+release:
+  command:
+    - ./init-db.sh
 run:
   web: npm start
