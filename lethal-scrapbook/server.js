@@ -19,6 +19,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+app.post('/runs', (req, res) => {
+  // TODO: Add code to handle data submission
+});
+
+app.get('/runs', (req, res) => {
+  // TODO: Add code to retrieve and send data
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
