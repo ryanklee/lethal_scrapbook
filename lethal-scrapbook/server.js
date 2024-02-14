@@ -93,10 +93,10 @@ app.get('/', (req, res) => {
 app.post('/runs', (req, res) => {
   app.post('/runs', async (req, res) => {
   try {
-    const { gameId, moonId, date, scrapCollected, quotaAtTimeOfRun, crewFatalities } = req.body;
+    const { gameId, moonId, day, strategies, crewFatalities, survived, scrapCollected, entrancesUsed } = req.body;
     const result = await pool.query(
-      'INSERT INTO Runs (GameID, MoonID, Date, ScrapCollected, QuotaAtTimeOfRun, CrewFatalities) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
-      [gameId, moonId, date, scrapCollected, quotaAtTimeOfRun, crewFatalities]
+      'INSERT INTO Runs (GameID, MoonID, Day, Strategies, CrewFatalities, Survived, ScrapCollected, EntrancesUsed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [gameId, moonId, day, strategies, crewFatalities, survived, scrapCollected, entrancesUsed]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
