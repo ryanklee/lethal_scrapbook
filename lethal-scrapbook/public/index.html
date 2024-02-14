@@ -11,7 +11,56 @@
     <h1>Welcome to My Webapp</h1>
     <p>This is a simple web application using Express.js and Bootstrap.</p>
 
-    <!-- TODO: Add form for data entry -->
+    <form id="run-form">
+      <div class="form-group">
+        <label for="gameId">Game ID</label>
+        <input type="number" class="form-control" id="gameId" required>
+      </div>
+      <div class="form-group">
+        <label for="moonId">Moon ID</label>
+        <input type="number" class="form-control" id="moonId" required>
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" required>
+      </div>
+      <div class="form-group">
+        <label for="scrapCollected">Scrap Collected</label>
+        <input type="number" class="form-control" id="scrapCollected" required>
+      </div>
+      <div class="form-group">
+        <label for="quotaAtTimeOfRun">Quota At Time Of Run</label>
+        <input type="number" class="form-control" id="quotaAtTimeOfRun" required>
+      </div>
+      <div class="form-group">
+        <label for="crewFatalities">Crew Fatalities</label>
+        <input type="number" class="form-control" id="crewFatalities">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <h2>Run Data</h2>
+    <table class="table" id="runs-table">
+      <thead>
+        <tr>
+          <th scope="col">Run ID</th>
+          <th scope="col">Game ID</th>
+          <th scope="col">Moon ID</th>
+          <th scope="col">Date</th>
+          <th scope="col">Scrap Collected</th>
+          <th scope="col">Quota At Time Of Run</th>
+          <th scope="col">Crew Fatalities</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be inserted here by client-side script -->
+      </tbody>
+    </table>
+    <nav aria-label="Page navigation">
+      <ul class="pagination" id="pagination">
+        <!-- Pagination will be handled by client-side script -->
+      </ul>
+    </nav>
 
     <!-- TODO: Add table for data display -->
   </div>
