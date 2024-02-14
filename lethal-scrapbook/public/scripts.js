@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('run-form');
   const runsTable = document.getElementById('runs-table');
   const pagination = document.getElementById('pagination');
+  const gameForm = document.getElementById('game-form');
+  const moonForm = document.getElementById('moon-form');
+  const facilityForm = document.getElementById('facility-form');
+  const entranceForm = document.getElementById('entrance-form');
+  const strategyForm = document.getElementById('strategy-form');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -39,6 +44,47 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error:', error);
       });
   }
+
+  function fetchLatestData(endpoint, callback) {
+    fetch(endpoint)
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          callback(data[data.length - 1]);
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  function setDefaultGame(data) {
+    gameForm.startDate.value = data.StartDate;
+    gameForm.finalQuota.value = data.FinalQuota;
+  }
+
+  function setDefaultMoon(data) {
+    moonForm.moonName.value = data.Name;
+  }
+
+  function setDefaultFacility(data) {
+    facilityForm.facilityMoonId.value = data.MoonID;
+  }
+
+  function setDefaultEntrance(data) {
+    entranceForm.entranceFacilityId.value = data.FacilityID;
+    entranceForm.entranceType.value = data.Type;
+  }
+
+  function setDefaultStrategy(data) {
+    strategyForm.strategyDescription.value = data.Description;
+  }
+
+  fetchLatestData('/games', setDefaultGame);
+  fetchLatestData('/moons', setDefaultMoon);
+  fetchLatestData('/facilities', setDefaultFacility);
+  fetchLatestData('/entrances', setDefaultEntrance);
+  fetchLatestData('/strategies', setDefaultStrategy);
 
   loadRuns();
 });
