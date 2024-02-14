@@ -7,6 +7,7 @@ CREATE TABLE Games (
 CREATE TABLE Moons (
     MoonID SERIAL PRIMARY KEY,
     MoonName VARCHAR(255) NOT NULL UNIQUE
+    MoonName VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE Runs (
@@ -14,10 +15,14 @@ CREATE TABLE Runs (
     GameID INT REFERENCES Games(GameID),
     MoonID INT REFERENCES Moons(MoonID),
     Day INT NOT NULL,
+    Day INT NOT NULL,
     Date DATE,
     ScrapCollected INT NOT NULL,
     QuotaAtTimeOfRun INT NOT NULL,
-    CrewFatalities INT,
+    CrewFatalities INT NOT NULL,
+    Survived BOOLEAN NOT NULL,
+    Strategies TEXT,
+    EntrancesUsed TEXT
     Survived BOOLEAN NOT NULL,
     Strategies TEXT,
     EntrancesUsed TEXT
@@ -59,6 +64,7 @@ CREATE TABLE Games (
 CREATE TABLE Moons (
     MoonID SERIAL PRIMARY KEY,
     MoonName VARCHAR(255) NOT NULL UNIQUE
+    MoonName VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE Runs (
@@ -66,10 +72,14 @@ CREATE TABLE Runs (
     GameID INT REFERENCES Games(GameID),
     MoonID INT REFERENCES Moons(MoonID),
     Day INT NOT NULL,
+    Day INT NOT NULL,
     Date DATE,
     ScrapCollected INT NOT NULL,
     QuotaAtTimeOfRun INT NOT NULL,
-    CrewFatalities INT,
+    CrewFatalities INT NOT NULL,
+    Survived BOOLEAN NOT NULL,
+    Strategies TEXT,
+    EntrancesUsed TEXT
     Survived BOOLEAN NOT NULL,
     Strategies TEXT,
     EntrancesUsed TEXT
