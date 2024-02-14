@@ -20,4 +20,4 @@ COPY init-db.sh .
 RUN chmod +x init-db.sh
 
 EXPOSE 3000
-CMD ["./init-db.sh"]
+CMD ["npm", "start"]
