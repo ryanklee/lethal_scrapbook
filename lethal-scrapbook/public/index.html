@@ -20,19 +20,33 @@
 <body>
   <div class="container">
     <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
+    <!-- Option to continue a previous game or start a new one -->
+    <div id="game-options">
+      <h2>Continue Game</h2>
+      <form id="continue-game-form">
+        <div class="form-group">
+          <label for="continueGameId">Game ID</label>
+          <input type="number" class="form-control" id="continueGameId" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Continue</button>
+      </form>
+      <h2>Or</h2>
+      <h2>Start New Game</h2>
+      <form id="new-game-form">
+        <div class="form-group">
+          <label for="newStartDate">Start Date</label>
+          <input type="date" class="form-control" id="newStartDate" value="" required>
+        </div>
+        <div class="form-group">
+          <label for="newFinalQuota">Final Quota</label>
+          <input type="number" class="form-control" id="newFinalQuota" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Start New Game</button>
+      </form>
+    </div>
+    <hr>
     <!-- Form for Games -->
-    <h2>Game Data</h2>
-    <form id="game-form">
-      <div class="form-group">
-        <label for="startDate">Start Date</label>
-        <input type="date" class="form-control" id="startDate" required>
-      </div>
-      <div class="form-group">
-        <label for="finalQuota">Final Quota</label>
-        <input type="number" class="form-control" id="finalQuota" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit Game</button>
-    </form>
+    <!-- The rest of the forms will be moved to a separate page for run data entry -->
 
     <!-- Form for Moons -->
     <h2>Moon Data</h2>
