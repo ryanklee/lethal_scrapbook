@@ -15,5 +15,9 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+COPY init-db.sql .
+COPY init-db.sh .
+RUN chmod +x init-db.sh
+
 EXPOSE 3000
-CMD [ "node", "server.js" ]
+CMD ["./init-db.sh"]
