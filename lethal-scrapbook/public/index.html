@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
   <style>
     .heavy-font {
       font-weight: 700; /* Bootstrap's 'font-weight-bold' class uses 700 as well */
-      font-size: 2rem; /* Adjust size as needed */
+      font-size: 1.5rem; /* Adjust size as needed */
       color: #ea0f0b; /* Set the color of the title */
     }
     body {
@@ -18,107 +18,27 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
-    <!-- Option to continue a previous game or start a new one -->
-    <div id="game-options">
-      <h2>Continue Game</h2>
-      <form id="continue-game-form">
-        <div class="form-group">
-          <label for="continueGameId">Game ID</label>
-          <input type="number" class="form-control" id="continueGameId" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Continue</button>
-      </form>
-      <h2>Or</h2>
-      <h2>Start New Game</h2>
-      <form id="new-game-form">
-        <div class="form-group">
-          <label for="newStartDate">Start Date</label>
-          <input type="date" class="form-control" id="newStartDate" value="" required>
-        </div>
-        <div class="form-group">
-          <label for="newFinalQuota">Final Quota</label>
-          <input type="number" class="form-control" id="newFinalQuota" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Start New Game</button>
-      </form>
+<body class="d-flex flex-column h-100">
+  <main role="main" class="flex-shrink-0">
+    <div class="container">
+      <h1 class="mt-5">Lethal Scrapbook</h1>
+      <p class="lead">Choose an option to get started:</p>
+      <div id="game-options" class="mb-3">
+        <button id="startNewGame" class="btn btn-primary btn-lg">Start New Game</button>
+        <span class="mx-2">or</span>
+        <input type="number" id="continueGameId" class="form-control d-inline-block w-auto" placeholder="Game ID">
+        <button id="continueGame" class="btn btn-secondary btn-lg">Continue Game</button>
+      </div>
+      <div id="runsDisplay" class="mt-5">
+        <!-- Runs table will be inserted here -->
+      </div>
+      <nav aria-label="Run data pagination">
+        <ul class="pagination">
+          <!-- Pagination links will be inserted here -->
+        </ul>
+      </nav>
     </div>
-    <hr>
-    <!-- Form for Games -->
-    <!-- The rest of the forms will be moved to a separate page for run data entry -->
-
-    <!-- Option to continue a previous game or start a new one -->
-    <div id="game-options">
-      <h2>Continue Game</h2>
-      <form id="continue-game-form">
-        <div class="form-group">
-          <label for="continueGameId">Game ID</label>
-          <input type="number" class="form-control" id="continueGameId" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Continue</button>
-      </form>
-      <h2>Or</h2>
-      <h2>Start New Game</h2>
-      <form id="new-game-form">
-        <div class="form-group">
-          <label for="newStartDate">Start Date</label>
-          <input type="date" class="form-control" id="newStartDate" required>
-        </div>
-        <div class="form-group">
-          <label for="newFinalQuota">Final Quota</label>
-          <input type="number" class="form-control" id="newFinalQuota" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Start New Game</button>
-      </form>
-    </div>
-    <hr>
-    <script>
-      document.getElementById('newStartDate').valueAsDate = new Date();
-    </script>
-    <!-- Form for Moons -->
-    <h2>Moon Data</h2>
-    <form id="moon-form">
-      <div class="form-group">
-        <label for="moonName">Moon Name</label>
-        <input type="text" class="form-control" id="moonName" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit Moon</button>
-    </form>
-
-    <!-- Form for Facilities -->
-    <h2>Facility Data</h2>
-    <form id="facility-form">
-      <div class="form-group">
-        <label for="facilityMoonId">Moon ID</label>
-        <input type="number" class="form-control" id="facilityMoonId" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit Facility</button>
-    </form>
-
-    <!-- Form for Entrances -->
-    <h2>Entrance Data</h2>
-    <form id="entrance-form">
-      <div class="form-group">
-        <label for="entranceFacilityId">Facility ID</label>
-        <input type="number" class="form-control" id="entranceFacilityId" required>
-      </div>
-      <div class="form-group">
-        <label for="entranceType">Entrance Type</label>
-        <input type="text" class="form-control" id="entranceType" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit Entrance</button>
-    </form>
-
-    <!-- Form for Strategies -->
-    <h2>Strategy Data</h2>
-    <form id="strategy-form">
-      <div class="form-group">
-        <label for="strategyDescription">Strategy Description</label>
-        <textarea class="form-control" id="strategyDescription" rows="3" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit Strategy</button>
-    </form>
+  </main>
 
 
     <form id="run-form">
