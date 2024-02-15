@@ -41,7 +41,23 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch(`/runs?page=${page}`)
       .then(response => response.json())
       .then(data => {
-        // Populate table and pagination
+        const runsTableBody = document.querySelector('#runsTable tbody');
+        runsTableBody.innerHTML = ''; // Clear existing rows
+        data.forEach(run => {
+          const row = runsTableBody.insertRow();
+          row.innerHTML = `
+            <tr>
+              <td>${run.RunID}</td>
+              <td>${run.GameID}</td>
+              <td>${run.MoonID}</td>
+              <td>${run.Date}</td>
+              <td>${run.ScrapCollected}</td>
+              <td>${run.QuotaAtTimeOfRun}</td>
+              <td>${run.CrewFatalities}</td>
+            </tr>
+          `;
+        });
+        // TODO: Implement pagination based on total number of runs
       })
       .catch((error) => {
         console.error('Error:', error);
