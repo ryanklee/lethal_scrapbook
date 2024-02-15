@@ -11,7 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   startNewGameButton.addEventListener('click', function(event) {
     event.preventDefault();
-    window.location.href = '/game-logging.html'; // Redirect to the game logging page for a new game
+    window.location.href = '/game-logging.html?new=true'; // Redirect to the game logging page for a new game
+  });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
   });
     const formData = {
       gameId: form.gameId.value,
@@ -35,6 +43,22 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch((error) => {
       console.error('Error:', error);
     });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
+  });
+  });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
   });
 
   function loadRuns(page = 1) {
@@ -57,11 +81,27 @@ document.addEventListener('DOMContentLoaded', function() {
             </tr>
           `;
         });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
+  });
         // TODO: Implement pagination based on total number of runs
       })
       .catch((error) => {
         console.error('Error:', error);
       });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
+  });
   }
 
   function fetchLatestData(endpoint, callback) {
@@ -75,6 +115,14 @@ document.addEventListener('DOMContentLoaded', function() {
       .catch((error) => {
         console.error('Error:', error);
       });
+
+  continueGameButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    const gameId = document.getElementById('continueGameId').value;
+    if (gameId) {
+      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
+    }
+  });
   }
 
   function setDefaultGame(data) {
