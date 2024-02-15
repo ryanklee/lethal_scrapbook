@@ -27,13 +27,22 @@
       <input type="number" id="continueGameId" placeholder="Game ID">
       <button id="continueGame" class="btn btn-secondary">Continue Game</button>
     </div>
-    <div id="runsDisplay" class="mt-5">
-      <table id="runsTable" class="table table-dark table-striped">
-        <!-- Table headers and initial 50 rows of run data will be inserted here -->
+    <div id="gamesDisplay" class="mt-5">
+      <table id="gamesTable" class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th>Game ID</th>
+            <th>Start Date</th>
+            <th>Final Quota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Initial 50 rows of game data will be inserted here by client-side script -->
+        </tbody>
       </table>
-      <nav id="paginationNav" aria-label="Run data pagination">
+      <nav id="gamesPaginationNav" aria-label="Game data pagination">
         <ul class="pagination justify-content-center">
-          <!-- Pagination links will be inserted here -->
+          <!-- Pagination links will be inserted here by client-side script -->
         </ul>
       </nav>
     </div>
