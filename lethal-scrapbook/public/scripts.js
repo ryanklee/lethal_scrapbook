@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const startNewGameButton = document.getElementById('startNewGame');
+  const startNewGameButton = document.getElementById('startNewGame');
   const runsTable = document.getElementById('runs-table');
   const pagination = document.getElementById('pagination');
   const gameForm = document.getElementById('game-form');
