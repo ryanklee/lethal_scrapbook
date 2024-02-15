@@ -9,7 +9,7 @@
     .heavy-font {
       font-weight: 700; /* Bootstrap's 'font-weight-bold' class uses 700 as well */
       font-size: 1.5rem; /* Adjust size as needed */
-      color: #ea0f0b; /* Set the color of the title */
+      color: #ffffff; /* Set the color of the title to white */
     }
     body {
       background-color: #000; /* Set the background color to black */
@@ -19,26 +19,24 @@
 </head>
 <body>
 <body class="d-flex flex-column h-100">
-  <main role="main" class="flex-shrink-0">
-    <div class="container">
-      <h1 class="mt-5">Lethal Scrapbook</h1>
-      <p class="lead">Choose an option to get started:</p>
-      <div id="game-options" class="mb-3">
-        <button id="startNewGame" class="btn btn-primary btn-lg">Start New Game</button>
-        <span class="mx-2">or</span>
-        <input type="number" id="continueGameId" class="form-control d-inline-block w-auto" placeholder="Game ID">
-        <button id="continueGame" class="btn btn-secondary btn-lg">Continue Game</button>
-      </div>
-      <div id="runsDisplay" class="mt-5">
-        <!-- Runs table will be inserted here -->
-      </div>
-      <nav aria-label="Run data pagination">
-        <ul class="pagination">
+  <div class="container">
+    <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
+    <div id="game-options" class="text-center">
+      <button id="startNewGame" class="btn btn-primary">Start New Game</button>
+      <input type="number" id="continueGameId" placeholder="Game ID">
+      <button id="continueGame" class="btn btn-secondary">Continue Game</button>
+    </div>
+    <div id="runsDisplay" class="mt-5">
+      <table id="runsTable" class="table table-dark table-striped">
+        <!-- Table headers and initial 50 rows of run data will be inserted here -->
+      </table>
+      <nav id="paginationNav" aria-label="Run data pagination">
+        <ul class="pagination justify-content-center">
           <!-- Pagination links will be inserted here -->
         </ul>
       </nav>
     </div>
-  </main>
+  </div>
 
 
     <form id="run-form">

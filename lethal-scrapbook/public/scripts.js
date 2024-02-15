@@ -1,15 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('run-form');
+  const startNewGameButton = document.getElementById('startNewGame');
   const runsTable = document.getElementById('runs-table');
   const pagination = document.getElementById('pagination');
   const gameForm = document.getElementById('game-form');
   const moonForm = document.getElementById('moon-form');
   const facilityForm = document.getElementById('facility-form');
   const entranceForm = document.getElementById('entrance-form');
-  const strategyForm = document.getElementById('strategy-form');
+  const continueGameButton = document.getElementById('continueGame');
 
-  form.addEventListener('submit', function(event) {
+  startNewGameButton.addEventListener('click', function(event) {
     event.preventDefault();
+    window.location.href = '/game-logging.html'; // Redirect to the game logging page for a new game
+  });
     const formData = {
       gameId: form.gameId.value,
       moonId: form.moonId.value,
