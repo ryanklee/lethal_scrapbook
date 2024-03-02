@@ -125,3 +125,8 @@ app.get('/runs', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+app.get('/game-logging.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'game-logging.html'));
+});
+
+// Additional routes for handling form submissions and data fetching for the game logging page
