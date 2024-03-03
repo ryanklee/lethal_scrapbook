@@ -1,7 +1,5 @@
 const express = require('express');
 const { Pool } = require('pg');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJSDoc = require('swagger-jsdoc');
 
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -20,8 +18,8 @@ const swaggerDefinition = {
 const options = { swaggerDefinition, apis: ['./server.js'] };
 const swaggerSpec = swaggerJSDoc(options);
 const path = require('path');
-const swaggerUi = require('swagger-ui-express');
-const swaggerJSDoc = require('swagger-jsdoc');
+
+
 
 
 const app = express();
