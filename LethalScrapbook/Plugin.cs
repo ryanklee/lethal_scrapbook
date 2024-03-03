@@ -2,6 +2,7 @@
 using UnityEngine.Networking;
 using System.Collections;
 using UnityEngine;
+using System; // Add this to use DateTime
 
 namespace LethalScrapbook
 {
@@ -38,7 +39,7 @@ namespace LethalScrapbook
 
             yield return request.SendWebRequest();
 
-            if (request.isNetworkError || request.isHttpError)
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
                 Logger.LogError($"Error sending game data: {request.error}");
             }
