@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: Lethal Company Game API
+  version: 1.0.0
+  description: API for tracking data on games played of Lethal Company
+servers:
+  - url: http://localhost:3000
+    description: Local server
+  - url: https://lethal-scrapbook-827d3e0322fb.herokuapp.com/
+    description: Production server
+paths:
+  /games:
+    post:
+      summary: Create a new game
+      description: Endpoint to add a new game
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - startDate
+                - finalQuota
+              properties:
+                startDate:
+                  type: string
+                  format: date
+                  description: Start date of the game
+                finalQuota:
+                  type: integer
+                  description: Final quota of the game
+      responses:
+        201:
+          description: Game created successfully
+        500:
+          description: Internal server error
+  # Additional paths for /moons, /facilities, /entrances, /strategies, etc.
+  # would be added here following the same structure as the /games path.
+components:
+  schemas:
+    # Definitions of schemas (e.g., Game, Moon, Facility, etc.) would go here.
