@@ -67,7 +67,6 @@ app.use(express.json());
  *       500:
  *         description: Internal server error
  */
- */
 app.post('/games', async (req, res) => {
   try {
     const { startDate, finalQuota } = req.body;
