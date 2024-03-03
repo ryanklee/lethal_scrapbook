@@ -86,6 +86,90 @@ app.post('/strategies', async (req, res) => {
   }
 });
 
+// Endpoint for mod to send game updates
+app.post('/mod/games', async (req, res) => {
+  try {
+    const { startDate, finalQuota } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Games (StartDate, FinalQuota) VALUES ($1, $2) RETURNING *',
+      [startDate, finalQuota]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for mod to send moon updates
+app.post('/mod/moons', async (req, res) => {
+  try {
+    const { name } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Moons (Name) VALUES ($1) RETURNING *',
+      [name]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for mod to send facility updates
+app.post('/mod/facilities', async (req, res) => {
+  try {
+    const { moonId } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Facilities (MoonID) VALUES ($1) RETURNING *',
+      [moonId]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for mod to send entrance updates
+app.post('/mod/entrances', async (req, res) => {
+  try {
+    const { facilityId, type } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Entrances (FacilityID, Type) VALUES ($1, $2) RETURNING *',
+      [facilityId, type]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for mod to send strategy updates
+app.post('/mod/strategies', async (req, res) => {
+  try {
+    const { description } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Strategies (Description) VALUES ($1) RETURNING *',
+      [description]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Endpoint for mod to send run updates
+app.post('/mod/runs', async (req, res) => {
+  try {
+    const { gameId, moonId, day, strategies, crewFatalities, survived, scrapCollected, entrancesUsed } = req.body;
+    const result = await pool.query(
+      'INSERT INTO Runs (GameID, MoonID, Day, Strategies, CrewFatalities, Survived, ScrapCollected, EntrancesUsed) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+      [gameId, moonId, day, strategies, crewFatalities, survived, scrapCollected, entrancesUsed]
+    );
+    res.status(201).json(result.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
