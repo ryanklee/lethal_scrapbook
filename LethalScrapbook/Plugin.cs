@@ -22,7 +22,14 @@ namespace LethalScrapbook
 
         private IEnumerator SendGameData(object gameData)
         {
-            string json = JsonUtility.ToJson(gameData);
+            // Assuming gameData is a class or struct that includes startDate and finalQuota
+            // You will need to define this class or struct and populate it with actual game data
+            GameData data = new GameData
+            {
+                startDate = DateTime.UtcNow.ToString("o"), // ISO 8601 format
+                finalQuota = 100 // Example value, replace with actual game data
+            };
+            string json = JsonUtility.ToJson(data);
             byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
             UnityWebRequest request = new UnityWebRequest(ApiBaseUrl + GameEndpoint, "POST");
             request.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
@@ -41,4 +48,10 @@ namespace LethalScrapbook
             }
         }
     }
+}
+// Define a class or struct to match the expected API payload
+public class GameData
+{
+    public string startDate;
+    public int finalQuota;
 }
