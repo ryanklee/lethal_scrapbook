@@ -40,6 +40,36 @@ app.use(express.json());
 
 // Endpoint to add a new game
  * @swagger
+// Endpoint to add a new game
+/**
+ * @swagger
+ * /games:
+ *   post:
+ *     summary: Create a new game
+ *     description: Endpoint to add a new game
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - startDate
+ *               - finalQuota
+ *             properties:
+ *               startDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Start date of the game
+ *               finalQuota:
+ *                 type: integer
+ *                 description: Final quota of the game
+ *     responses:
+ *       201:
+ *         description: Game created successfully
+ *       500:
+ *         description: Internal server error
+ */
 /**
  * @swagger
  * /games:
