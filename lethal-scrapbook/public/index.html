@@ -23,28 +23,9 @@
   <div class="container">
     <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
     <div id="game-options" class="text-center">
-      <button id="startNewGame" class="btn btn-primary">Start New Game</button>
-      <input type="number" id="continueGameId" placeholder="Game ID">
-      <button id="continueGame" class="btn btn-secondary">Continue Game</button>
-    </div>
-    <div id="gamesDisplay" class="mt-5">
-      <table id="gamesTable" class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th>Game ID</th>
-            <th>Start Date</th>
-            <th>Final Quota</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Initial 50 rows of game data will be inserted here by client-side script -->
-        </tbody>
-      </table>
-      <nav id="gamesPaginationNav" aria-label="Game data pagination">
-        <ul class="pagination justify-content-center">
-          <!-- Pagination links will be inserted here by client-side script -->
-        </ul>
-      </nav>
+    <div id="latestDataDisplay" class="mt-5">
+      <h2>Last Updated Data:</h2>
+      <div id="latestData"></div>
     </div>
   </div>
 
