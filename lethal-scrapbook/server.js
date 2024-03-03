@@ -83,6 +83,30 @@ app.post('/games', async (req, res) => {
 });
 
 // Endpoint to add a new moon
+/**
+ * @swagger
+ * /moons:
+ *   post:
+ *     summary: Create a new moon
+ *     description: Endpoint to add a new moon
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - name
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 description: Name of the moon
+ *     responses:
+ *       201:
+ *         description: Moon created successfully
+ *       500:
+ *         description: Internal server error
+ */
 app.post('/moons', async (req, res) => {
   try {
     const { name } = req.body;
@@ -97,6 +121,30 @@ app.post('/moons', async (req, res) => {
 });
 
 // Endpoint to add a new facility
+/**
+ * @swagger
+ * /facilities:
+ *   post:
+ *     summary: Create a new facility
+ *     description: Endpoint to add a new facility
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - moonId
+ *             properties:
+ *               moonId:
+ *                 type: integer
+ *                 description: ID of the moon where the facility is located
+ *     responses:
+ *       201:
+ *         description: Facility created successfully
+ *       500:
+ *         description: Internal server error
+ */
 app.post('/facilities', async (req, res) => {
   try {
     const { moonId } = req.body;
@@ -111,6 +159,34 @@ app.post('/facilities', async (req, res) => {
 });
 
 // Endpoint to add a new entrance
+/**
+ * @swagger
+ * /entrances:
+ *   post:
+ *     summary: Create a new entrance
+ *     description: Endpoint to add a new entrance
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - facilityId
+ *               - type
+ *             properties:
+ *               facilityId:
+ *                 type: integer
+ *                 description: ID of the facility where the entrance is located
+ *               type:
+ *                 type: string
+ *                 description: Type of the entrance
+ *     responses:
+ *       201:
+ *         description: Entrance created successfully
+ *       500:
+ *         description: Internal server error
+ */
 app.post('/entrances', async (req, res) => {
   try {
     const { facilityId, type } = req.body;
@@ -125,6 +201,30 @@ app.post('/entrances', async (req, res) => {
 });
 
 // Endpoint to add a new strategy
+/**
+ * @swagger
+ * /strategies:
+ *   post:
+ *     summary: Create a new strategy
+ *     description: Endpoint to add a new strategy
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - description
+ *             properties:
+ *               description:
+ *                 type: string
+ *                 description: Description of the strategy
+ *     responses:
+ *       201:
+ *         description: Strategy created successfully
+ *       500:
+ *         description: Internal server error
+ */
 app.post('/strategies', async (req, res) => {
   try {
     const { description } = req.body;
