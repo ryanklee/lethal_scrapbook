@@ -1,6 +1,7 @@
 const express = require('express');
 const { Pool } = require('pg');
 
+const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerDefinition = {
   openapi: '3.0.0',
   info: {
