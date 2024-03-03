@@ -39,10 +39,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(express.json());
 
 // Endpoint to add a new game
- * @swagger
-// Endpoint to add a new game
 /**
- * @swagger
  * /games:
  *   post:
  *     summary: Create a new game
