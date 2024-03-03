@@ -1,5 +1,24 @@
 const express = require('express');
 const { Pool } = require('pg');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Lethal Company Game API',
+    version: '1.0.0',
+    description: 'API for tracking data on games played of Lethal Company',
+  },
+  servers: [
+    {
+      url: 'http://localhost:3000',
+      description: 'Local server',
+    },
+  ],
+};
+const options = { swaggerDefinition, apis: ['./server.js'] };
+const swaggerSpec = swaggerJSDoc(options);
 const path = require('path');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
@@ -16,9 +35,40 @@ const pool = new Pool({
 });
 
 app.use(express.static('public'));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use(express.json());
 
 // Endpoint to add a new game
+ * @swagger
+ * /games:
+ *   post:
+ *     summary: Create a new game
+ *     description: Endpoint to add a new game
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - startDate
+ *               - finalQuota
+ *             properties:
+ *               startDate:
+ *                 type: string
+ *                 format: date
+ *                 description: Start date of the game
+ *               finalQuota:
+ *                 type: integer
+ *                 description: Final quota of the game
+ *     responses:
+ *       201:
+ *         description: Game created successfully
+ *       500:
+ *         description: Internal server error
+ */
 app.post('/games', async (req, res) => {
   try {
     const { startDate, finalQuota } = req.body;
