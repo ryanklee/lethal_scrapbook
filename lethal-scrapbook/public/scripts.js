@@ -1,26 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
   const startNewGameButton = document.getElementById('startNewGame');
-  const startNewGameButton = document.getElementById('startNewGame');
-  const runsTable = document.getElementById('runs-table');
-  const pagination = document.getElementById('pagination');
-  const gameForm = document.getElementById('game-form');
-  const moonForm = document.getElementById('moon-form');
-  const facilityForm = document.getElementById('facility-form');
-  const entranceForm = document.getElementById('entrance-form');
-  const continueGameButton = document.getElementById('continueGame');
+  function fetchLatestData() {
+    fetch('/runs?page=1&limit=1') // Fetch only the last updated row
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          const latestData = data[0]; // Get the last row
+          const latestDataDiv = document.getElementById('latestData');
+          latestDataDiv.innerHTML = JSON.stringify(latestData, null, 2); // Display data as formatted JSON
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
 
-  startNewGameButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    window.location.href = '/game-logging.html?new=true'; // Redirect to the game logging page for a new game
-  });
-
-  continueGameButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    const gameId = document.getElementById('continueGameId').value;
-    if (gameId) {
-      window.location.href = `/game-logging.html?gameId=${gameId}`; // Redirect to the game logging page with the specified game ID
-    }
-  });
+  fetchLatestData(); // Call the function to fetch and display data
     const formData = {
       gameId: form.gameId.value,
       moonId: form.moonId.value,
