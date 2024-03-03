@@ -40,6 +40,8 @@ app.use(express.json());
 
 // Endpoint to add a new game
  * @swagger
+/**
+ * @swagger
  * /games:
  *   post:
  *     summary: Create a new game
@@ -66,6 +68,7 @@ app.use(express.json());
  *         description: Game created successfully
  *       500:
  *         description: Internal server error
+ */
  */
 app.post('/games', async (req, res) => {
   try {
