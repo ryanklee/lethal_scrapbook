@@ -15,6 +15,22 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   fetchLatestData(); // Call the function to fetch and display data
+  function fetchLatestData() {
+    fetch('/runs?page=1&limit=1') // Fetch only the last updated row
+      .then(response => response.json())
+      .then(data => {
+        if (data.length > 0) {
+          const latestData = data[0]; // Get the last row
+          const latestDataDiv = document.getElementById('latestData');
+          latestDataDiv.innerHTML = JSON.stringify(latestData, null, 2); // Display data as formatted JSON
+        }
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }
+
+  fetchLatestData(); // Call the function to fetch and display data
   const startNewGameButton = document.getElementById('startNewGame');
   function fetchLatestData() {
     fetch('/runs?page=1&limit=1') // Fetch only the last updated row
