@@ -1,0 +1,11 @@
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.csproj.AssemblyReference.cache
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/PluginInfo.cs
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.GeneratedMSBuildEditorConfig.editorconfig
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.AssemblyInfoInputs.cache
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.AssemblyInfo.cs
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.csproj.CoreCompileInputs.cache
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/bin/Debug/netstandard2.1/LethalScrapbook.deps.json
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/bin/Debug/netstandard2.1/LethalScrapbook.dll
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/bin/Debug/netstandard2.1/LethalScrapbook.pdb
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.dll
+/home/rlk/code/lethal_scrapbook/LethalScrapbook/obj/Debug/netstandard2.1/LethalScrapbook.pdb

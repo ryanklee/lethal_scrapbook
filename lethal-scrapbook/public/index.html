@@ -1,93 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lethal Scrapbook</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .heavy-font {
-      font-weight: 700; /* Bootstrap's 'font-weight-bold' class uses 700 as well */
-      font-size: 1.5rem; /* Adjust size as needed */
-      color: #ffffff; /* Set the color of the title to white */
-      color: #ffffff; /* Set the color of the title to white */
-    }
-    body {
-      background-color: #000; /* Set the background color to black */
-      color: #d3d3d3; /* Set the non-title text color to light grey for readability */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Lethal Scrapbook</title>
 </head>
 <body>
-<body>
-  <div class="container">
-    <h1 class="heavy-font text-center mt-5 mb-4">Lethal Scrapbook</h1>
-    <div id="game-options" class="text-center">
-    <div id="latestDataDisplay" class="mt-5">
-      <h2>Last Updated Data:</h2>
-      <div id="latestData"></div>
+    <div id="latestDataDisplay" class="container">
+        <h1>Last Updated Data:</h1>
+        <div id="latestData"></div>
     </div>
-  </div>
-
-
-    <form id="run-form">
-      ...
-      <div class="form-group row">
-        <label for="gameId" class="col-sm-2 col-form-label">Game ID</label>
-        <div class="col-sm-10">
-          <input type="number" class="form-control" id="gameId" required>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="day">Day</label>
-        <select class="form-control" id="day" required>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="moonId">Moon ID</label>
-        <input type="number" class="form-control" id="moonId" required>
-      </div>
-      <div class="form-group">
-        <label for="strategies">Strategies</label>
-        <input type="text" class="form-control" id="strategies" required>
-      </div>
-      <div class="form-group">
-        <label for="crewFatalities">Crew Fatalities</label>
-        <input type="number" class="form-control" id="crewFatalities" required>
-      </div>
-      <div class="form-group">
-        <label for="survived">Survived</label>
-        <select class="form-control" id="survived" required>
-          <option value="true">Yes</option>
-          <option value="false">No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" required>
-      </div>
-      <div class="form-group">
-        <label for="scrapCollected">Scrap Collected</label>
-        <input type="number" class="form-control" id="scrapCollected" required>
-      </div>
-      <div class="form-group">
-        <label for="entrancesUsed">Moon Entrances Used</label>
-        <input type="text" class="form-control" id="entrancesUsed" required>
-      </div>
-      <div class="form-group">
-        <label for="quotaAtTimeOfRun">Quota At Time Of Run</label>
-        <input type="number" class="form-control" id="quotaAtTimeOfRun" required>
-      </div>
-      <div class="form-group">
-        <label for="crewFatalities">Crew Fatalities</label>
-        <input type="number" class="form-control" id="crewFatalities">
-      </div>
-
-    <!-- Table for data display is implemented above -->
-  </div>
-  <script src="scripts.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
